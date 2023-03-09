@@ -1,9 +1,9 @@
-import React from 'react'
+import Navbar from "../components/index/Navbar";
 
 const App = () => {
   return (
-    <div className='main min-h-screen'>
-      <h1 className='text-white text-center text-4xl font-bold'>QuizFull</h1>
+    <div className='main min-h-screen min-w-full'>
+      <Navbar />
     </div>
   )
 }

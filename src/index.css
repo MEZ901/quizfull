@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.main {
+    background-image: linear-gradient(to right top, #38609b, #3b5fba, #5859d4, #8548e5, #b812eb);
+}

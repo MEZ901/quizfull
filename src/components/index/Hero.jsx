@@ -3,7 +3,7 @@ import ScrollDownBtn from './ScrollDownBtn';
 
 const Hero = () => {
   return (
-    <section className='w-11/12 m-auto'>
+    <section>
         <div className='flex justify-around items-center'>
             <div className='text-center sm:w-3/5 mt-20 sm:mt-0'>
                 <h1 className='text-white text-2xl font-bold mb-2'>Put your knowledge to the test</h1>

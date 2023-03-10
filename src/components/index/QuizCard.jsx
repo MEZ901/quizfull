@@ -13,10 +13,14 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import defaultImg from '../../assets/defaultImg.png';
 import Button from '@mui/material/Button';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { useDispatch } from 'react-redux';
+import { modalToggle } from '../../features/modal/ModalSlice';
+import CustomModal from './CustomModal';
 
 const QuizCard = (props) => {
+  const dispatch = useDispatch();
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -49,9 +53,10 @@ const QuizCard = (props) => {
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <Button variant="contained" endIcon={<AssignmentIcon />} style={{flex: 1}}>
+        <Button variant="contained" endIcon={<AssignmentIcon />} onClick={() => {dispatch(modalToggle())}} style={{flex: 1}}>
           Take the quiz
         </Button>
+        <CustomModal />
       </CardActions>
     </Card>
   );

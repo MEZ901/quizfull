@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { modalToggle } from '../../features/modal/ModalSlice';
 
@@ -13,10 +15,11 @@ const CustomModal = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: 400,
-        bgcolor: 'background.paper',
-        border: '2px solid #000',
+        bgcolor: '#eee',
+        border: '1px solid #000',
+        borderRadius: 2,
         boxShadow: 24,
-        p: 4,
+        p: 2,
     };
     return (
         <Modal
@@ -27,11 +30,12 @@ const CustomModal = () => {
         >
             <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                    Text in a modal
+                    Enter your username
                 </Typography>
-                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                </Typography>
+                <div>
+                <TextField id="filled-basic" label="username" variant="filled" margin='normal' fullWidth />
+                <Button variant="outlined">submit</Button>
+                </div>
             </Box>
         </Modal>
     )

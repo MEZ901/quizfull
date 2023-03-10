@@ -4,8 +4,10 @@ import Hero from "../components/index/Hero";
 const App = () => {
   return (
     <div className='main min-h-screen min-w-full'>
-      <Navbar />
-      <Hero />
+      <div className="h-screen">
+        <Navbar />
+        <Hero />
+      </div>
     </div>
   )
 }

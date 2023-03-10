@@ -1,8 +1,9 @@
-import img from '../../assets/JavaScript frameworks-bro.svg'
+import img from '../../assets/JavaScript frameworks-bro.svg';
+import ScrollDownBtn from './ScrollDownBtn';
 
 const Hero = () => {
   return (
-    <section className=' w-11/12 m-auto justify-between'>
+    <section className='w-11/12 m-auto'>
         <div className='flex justify-around items-center'>
             <div className='text-center w-3/5'>
                 <h1 className='text-white text-2xl font-bold mb-2'>Put your knowledge to the test</h1>
@@ -10,6 +11,7 @@ const Hero = () => {
             </div>
             <img src={img} alt="mockup" width="400px" />
         </div>
+        <ScrollDownBtn />
     </section>
   )
 }

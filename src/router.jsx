@@ -2,6 +2,8 @@ import { Navigate, createBrowserRouter } from "react-router-dom"
 import RootLayout from "./layouts/RootLayout";
 import Index from './views/Index';
 import PageNotFound from "./views/PageNotFound";
+import QuizLayout from "./layouts/QuizLayout";
+import Info from "./views/Info";
 
 const router = createBrowserRouter([
     {
@@ -13,12 +15,18 @@ const router = createBrowserRouter([
                 element: <Navigate to='/home' />
             },
             {
-                path: '/home',
+                path: 'home',
                 element: <Index />
             },
             {
-                path: '/quiz',
-                element: <Index />
+                path: 'quiz',
+                element: <QuizLayout />,
+                children: [
+                    {
+                        path: 'info',
+                        element: <Info />
+                    }
+                ]
             },
         ]
     },

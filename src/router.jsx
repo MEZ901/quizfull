@@ -1,12 +1,12 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
-import DefaultLayout from "./views/DefaultLayout";
+import Root from "./views/Root";
 import Index from './views/Index';
 import PageNotFound from "./views/PageNotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <DefaultLayout />,
+        element: <Root/>,
         children: [
             {
                 path: '/',
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/home',
+                element: <Index />
+            },
+            {
+                path: '/quiz',
                 element: <Index />
             },
         ]

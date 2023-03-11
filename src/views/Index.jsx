@@ -1,12 +1,10 @@
-import Navbar from "../components/index/Navbar";
 import Hero from "../components/index/Hero";
 import QuizCard from "../components/index/QuizCard";
 
 const App = () => {
   return (
-    <div className='main min-h-screen min-w-full'>
+    <div>
       <div className="h-screen w-11/12 m-auto">
-        <Navbar />
         <Hero />
       </div>
       <div className="w-11/12 m-auto p-5 flex flex-wrap gap-6 justify-center">

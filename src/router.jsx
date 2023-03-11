@@ -1,12 +1,12 @@
 import { Navigate, createBrowserRouter } from "react-router-dom"
-import Root from "./views/Root";
+import RootLayout from "./layouts/RootLayout";
 import Index from './views/Index';
 import PageNotFound from "./views/PageNotFound";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Root/>,
+        element: <RootLayout/>,
         children: [
             {
                 path: '/',

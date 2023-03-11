@@ -39,7 +39,7 @@ const CustomModal = () => {
                     Enter your username
                 </Typography>
                 <TextField id="filled-basic" label="username" variant="filled" margin='normal' fullWidth onChange={(e) => {setNewUsername(e.target.value)}} />
-                <Button variant="outlined" onClick={() => {dispatch(username(newUsername))}}>submit</Button>
+                <Button variant="outlined" onClick={() => {dispatch(username(newUsername)); }}>submit</Button>
             </Box>
         </Modal>
     )

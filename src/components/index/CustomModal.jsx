@@ -7,11 +7,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { modalToggle } from '../../features/modal/ModalSlice';
 import { username } from '../../features/user/userSlice';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const CustomModal = () => {
     const modal = useSelector(state => state.modal.value);
-    const user = useSelector(state => state.user.value);
     const dispatch = useDispatch();
     const [newUsername, setNewUsername] = useState("");
     const lg = useMediaQuery('(min-width:700px)');

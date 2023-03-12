@@ -5,12 +5,16 @@ import Step from '@mui/material/Step';
 import StepButton from '@mui/material/StepButton';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { newActiveStep, resetActiveStep } from '../../features/stepper/ActiveSlice';
+import { newCompleted, resetCompleted } from '../../features/stepper/CompletedSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const steps = ['Info', 'Quiz', 'Result'];
 
-export default function StepperComponent() {
-  const [activeStep, setActiveStep] = React.useState(0);
-  const [completed, setCompleted] = React.useState({});
+const StepperComponent = () => {
+  const activeStep = useSelector(state => state.activeStep.value);
+  const completed = useSelector(state => state.completedSteps.value);
+  const dispatch = useDispatch();
 
   const totalSteps = () => {
     return steps.length;
@@ -20,33 +24,22 @@ export default function StepperComponent() {
     return Object.keys(completed).length;
   };
 
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1;
-  };
-
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps();
   };
 
   const handleNext = () => {
-    const newActiveStep = activeStep + 1;
-    setActiveStep(newActiveStep);
-  };
-
-  const handleStep = (step) => () => {
-    setActiveStep(step);
+    dispatch(newActiveStep());
   };
 
   const handleComplete = () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
+    dispatch(newCompleted(activeStep));
     handleNext();
   };
 
   const handleReset = () => {
-    setActiveStep(0);
-    setCompleted({});
+    dispatch(resetActiveStep());
+    dispatch(resetCompleted());
   };
 
   return (
@@ -54,7 +47,7 @@ export default function StepperComponent() {
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
-            <StepButton color="inherit" onClick={handleStep(index)}>
+            <StepButton color="inherit">
               {label}
             </StepButton>
           </Step>
@@ -73,9 +66,6 @@ export default function StepperComponent() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              Step {activeStep + 1}
-            </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
               <Box sx={{ flex: '1 1 auto' }} />
               {activeStep !== steps.length &&
@@ -97,3 +87,5 @@ export default function StepperComponent() {
     </Box>
   );
 }
+
+export default StepperComponent

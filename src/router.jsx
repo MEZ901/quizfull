@@ -23,9 +23,13 @@ const router = createBrowserRouter([
                 element: <QuizLayout />,
                 children: [
                     {
+                        path: '',
+                        element: <Navigate to='info' />
+                    },
+                    {
                         path: 'info',
                         element: <Info />
-                    }
+                    },
                 ]
             },
         ]

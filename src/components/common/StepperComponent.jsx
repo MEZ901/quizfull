@@ -6,6 +6,7 @@ import StepButton from '@mui/material/StepButton';
 import { newActiveStep, resetActiveStep } from '../../features/stepper/ActiveSlice';
 import { newCompleted, resetCompleted } from '../../features/stepper/CompletedSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const steps = ['Info', 'Quiz', 'Result'];
 
@@ -13,6 +14,21 @@ const StepperComponent = () => {
   const activeStep = useSelector(state => state.activeStep.value);
   const completed = useSelector(state => state.completedSteps.value);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    switch (activeStep) {
+      case 0:
+        navigate('/quiz/info');
+        break;
+      case 1:
+        navigate('/quiz/questions');
+        break;
+      case 2:
+        navigate('/quiz/result');
+        break;
+    }
+  }, [activeStep]);
 
   const totalSteps = () => {
     return steps.length;

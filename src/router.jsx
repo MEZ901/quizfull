@@ -4,6 +4,8 @@ import Index from './views/Index';
 import PageNotFound from "./views/PageNotFound";
 import QuizLayout from "./layouts/QuizLayout";
 import Info from "./views/Info";
+import Questions, { questionsLoader } from "./views/Questions";
+import Result from "./views/Result";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,15 @@ const router = createBrowserRouter([
                         path: 'info',
                         element: <Info />
                     },
+                    {
+                        path: 'questions',
+                        element: <Questions />,
+                        loader: questionsLoader,
+                    },
+                    {
+                        path: 'result',
+                        element: <Result />
+                    }
                 ]
             },
         ]

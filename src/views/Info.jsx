@@ -3,16 +3,13 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { newActiveStep } from '../features/stepper/ActiveSlice';
 import { newCompleted } from '../features/stepper/CompletedSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const Info = () => {
   const activeStep = useSelector(state => state.activeStep.value);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const startQuiz = () => {
     dispatch(newCompleted(activeStep));
     dispatch(newActiveStep());
-    navigate('/quiz/questions');
   }
   return (
     <div>

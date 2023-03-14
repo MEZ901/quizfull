@@ -4,10 +4,12 @@ import ChoiceCard from './ChoiceCard'
 const QuestionCard = (props) => {
   return (
     <div>
-      <h1 className='m-5 text-center text-xl font-bold'>{props.question}</h1>
+      <h1 className='m-5 text-center text-xl font-bold'>{props.question.question}</h1>
       <div className='flex gap-2 flex-wrap justify-evenly'>
-        {props.choices.map(choice => (
-          <ChoiceCard choice={choice.choice} id={choice.id} />
+        {props.question.choices.map(choice => (
+          <div key={choice.id}>
+            <ChoiceCard choice={choice} answer={props.question.answer} />
+          </div>
         ))}
       </div>
     </div>

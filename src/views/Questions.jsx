@@ -5,10 +5,14 @@ import Progress from "../components/questions/Progress";
 import { Button } from "@mui/material";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import SubjectIcon from '@mui/icons-material/Subject';
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
 
 const Questions = () => {
     const questions = useLoaderData();
-    questions.sort(() => Math.random() - 0.5);
+    const select = useSelector(state => state.selectChoice.value);
+    useMemo(() => questions.sort(() => Math.random() - 0.5), [questions]);
+    
     return (
         <div>
             <div className="my-10 min-h-[300px]">
@@ -19,7 +23,7 @@ const Questions = () => {
                     <p className="font-semibold text-white mr-3">Your Progress: </p>
                     <Progress />
                 </div>
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className={`${select ? 'flex' : 'hidden'} flex-col sm:flex-row gap-2`}>
                     <Button variant="text" sx={{color: 'white'}} endIcon={<SubjectIcon />}>
                         Explanation
                     </Button>
@@ -33,10 +37,10 @@ const Questions = () => {
 }
 
 export const questionsLoader = async () => {
-    // axios.get("http://localhost:4000/questions").then((response) => {
-    //     return response;
-    // });
+    // let res = await axios.get("http://localhost:4000/questions");
+    // console.log(res.json());
     const res = await fetch('http://localhost:4000/questions');
+    
     return res.json();
 }
 

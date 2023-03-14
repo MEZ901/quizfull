@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectToggle } from "../../features/quiz/SelectSlice";
 
 const ChoiceCard = (props) => {
   const [background, setBackground] = useState('bg-glass');
+  const [selected, setSelected] = useState(false);
   const alreadySelect = useSelector(state => state.selectChoice.value)
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(alreadySelect && !selected) props.choice.id == props.answer ? setBackground('bg-glass-success') : setBackground('bg-glass');
+  }, [alreadySelect])
 
   const handelClick = () => {
     if(!alreadySelect) {
       props.choice.id == props.answer ? setBackground('bg-glass-success') : setBackground('bg-glass-failed');
+      setSelected(true);
       dispatch(selectToggle());
     }
   }

@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 const RootLayout = () => {
   return (
-    <div className="main min-h-screen min-w-full">
+    <div className="main min-h-screen min-w-full pb-5">
       <div className="w-11/12 m-auto">
         <Navbar />
       </div>

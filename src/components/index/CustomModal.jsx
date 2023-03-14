@@ -8,10 +8,12 @@ import { modalToggle } from '../../features/modal/ModalSlice';
 import { username } from '../../features/user/userSlice';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CustomModal = () => {
     const modal = useSelector(state => state.modal.value);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [newUsername, setNewUsername] = useState("");
     const lg = useMediaQuery('(min-width:700px)');
     const style = {
@@ -24,7 +26,7 @@ const CustomModal = () => {
         border: '1px solid #000',
         borderRadius: 2,
         boxShadow: 24,
-        p: 2,
+        p: 3,
     };
     return (
         <Modal
@@ -34,11 +36,11 @@ const CustomModal = () => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{fontWeight: 'bold'}}>
                     Enter your username
                 </Typography>
                 <TextField id="filled-basic" label="username" variant="filled" margin='normal' fullWidth onChange={(e) => {setNewUsername(e.target.value)}} />
-                <Button variant="outlined" onClick={() => {dispatch(username(newUsername)); }}>submit</Button>
+                <Button variant="outlined" sx={{mt: 1}} onClick={() => {dispatch(username(newUsername)); navigate('/quiz/info'); dispatch(modalToggle())}}>Next</Button>
             </Box>
         </Modal>
     )

@@ -6,7 +6,7 @@ import StepButton from '@mui/material/StepButton';
 import { newActiveStep, resetActiveStep } from '../../features/stepper/ActiveSlice';
 import { newCompleted, resetCompleted } from '../../features/stepper/CompletedSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Info', 'Quiz', 'Result'];
 

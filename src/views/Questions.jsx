@@ -16,7 +16,7 @@ export const questionsLoader = async () => {
     // axios.get("http://localhost:4000/questions").then((response) => {
     //     return response;
     // });
-    const res = await fetch('http://localhost:4000/questions?_sort=id&_order=asc,desc');
+    const res = await fetch('http://localhost:4000/questions');
     return res.json();
 }
 

@@ -1,12 +1,13 @@
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
+import QuestionCard from "../components/questions/QuestionCard";
 
 const Questions = () => {
     const questions = useLoaderData();
-    questions.sort((a, b) => Math.random() - 0.5);
+    questions.sort(() => Math.random() - 0.5);
     return (
-        <div>
-            
+        <div className="mt-10">
+            <QuestionCard question={questions[0].question} choices={questions[0].choices} /> 
         </div>
     )
 }

@@ -14,7 +14,7 @@ import defaultImg from '../../assets/defaultImg.png';
 import Button from '@mui/material/Button';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useDispatch } from 'react-redux';
-import { modalToggle } from '../../features/modal/ModalSlice';
+import { modalToggle } from '../../features/modal/AuthModalSlice';
 import CustomModal from './CustomModal';
 
 const QuizCard = (props) => {

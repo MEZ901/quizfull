@@ -4,14 +4,14 @@ import Modal from '@mui/material/Modal';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { modalToggle } from '../../features/modal/ModalSlice';
+import { modalToggle } from '../../features/modal/AuthModalSlice';
 import { username } from '../../features/user/userSlice';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const CustomModal = () => {
-    const modal = useSelector(state => state.modal.value);
+    const modal = useSelector(state => state.authModal.value);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [newUsername, setNewUsername] = useState("");

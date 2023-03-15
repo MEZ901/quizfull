@@ -4,7 +4,8 @@ import userReducer from "../features/user/userSlice";
 import activeStepReducer from "../features/stepper/ActiveSlice";
 import completedStepsReducer from "../features/stepper/CompletedSlice";
 import selectChoiceReducer from "../features/quiz/SelectSlice";
-import explanationModalReducer from "../features/modal/ExplanationModalSlice"
+import explanationModalReducer from "../features/modal/ExplanationModalSlice";
+import scoreCounterReducer from "../features/user/ScoreCounterSlice";
 
 const store = configureStore({
     reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
         completedSteps: completedStepsReducer,
         selectChoice: selectChoiceReducer, 
         explanationModal: explanationModalReducer,
+        scoreCounter: scoreCounterReducer,
     },
 });
 

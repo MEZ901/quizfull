@@ -13,16 +13,19 @@ import { modalToggle } from "../features/modal/ExplanationModalSlice";
 import { newActiveStep } from '../features/stepper/ActiveSlice';
 import { newCompleted } from '../features/stepper/CompletedSlice';
 import { selectToggle } from "../features/quiz/SelectSlice";
+import { score } from "../features/user/userSlice"; 
 
 const Questions = () => {
     const questions = useLoaderData();
     useMemo(() => questions.sort(() => Math.random() - 0.5), [questions]);
     const select = useSelector(state => state.selectChoice.value);
+    const answers = useSelector(state => state.scoreCounter.value);
     const dispatch = useDispatch();
     const [index, setIndex] = useState(0);
     const activeStep = useSelector(state => state.activeStep.value);
     const progress = (index * 100) / questions.length;
     const showResult = () => {
+        dispatch(score({correctAnswer: answers.correctAnswer, totalQuestions: questions.length}));
         dispatch(newCompleted(activeStep));
         dispatch(newActiveStep());
     }

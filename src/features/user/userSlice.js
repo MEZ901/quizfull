@@ -10,7 +10,8 @@ export const userSlice = createSlice({
             state.value.username = action.payload;
         },
         score: (state, action) => {
-            state.value.score = action.payload;
+            let score = (action.payload.correctAnswer * 100) / action.payload.totalQuestions
+            state.value.score = score;
         }
     },
 });

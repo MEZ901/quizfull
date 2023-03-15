@@ -9,7 +9,9 @@ const ChoiceCard = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(alreadySelect && !selected) props.choice.id == props.answer ? setBackground('bg-glass-success') : setBackground('bg-glass');
+    if(alreadySelect && !selected) props.choice.id == props.answer ? setBackground('bg-glass-success') : setBackground('bg-glass')
+    else if(!alreadySelect) setBackground('bg-glass')
+    setSelected(false);
   }, [alreadySelect])
 
   const handelClick = () => {

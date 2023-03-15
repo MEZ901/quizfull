@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { modalToggle } from "../features/modal/ExplanationModalSlice";
 import { newActiveStep } from '../features/stepper/ActiveSlice';
 import { newCompleted } from '../features/stepper/CompletedSlice';
+import { selectToggle } from "../features/quiz/SelectSlice";
 
 const Questions = () => {
     const questions = useLoaderData();
@@ -40,7 +41,7 @@ const Questions = () => {
                     <Button variant="text" sx={{color: 'white'}} endIcon={<SubjectIcon />} onClick={() => { dispatch(modalToggle()) }}>
                         Explanation
                     </Button>
-                    <Button variant="contained" endIcon={<NavigateNextIcon />} onClick={() => { index < questions.length - 1 ? setIndex((prev) => prev + 1) : showResult() }}>
+                    <Button variant="contained" endIcon={<NavigateNextIcon />} onClick={() => { index < questions.length - 1 ? setIndex((prev) => prev + 1) : showResult(); dispatch(selectToggle()) }}>
                         {index < questions.length - 1 ? 'Next question' : 'Finish the quiz'}
                     </Button>
                 </div>

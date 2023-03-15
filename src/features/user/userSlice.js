@@ -12,10 +12,13 @@ export const userSlice = createSlice({
         score: (state, action) => {
             let score = (action.payload.correctAnswer * 100) / action.payload.totalQuestions
             state.value.score = score;
+        },
+        resetScore: (state) => {
+            state.value.score = 0;
         }
     },
 });
 
-export const { username, score } = userSlice.actions;
+export const { username, score, resetScore } = userSlice.actions;
 
 export default userSlice.reducer;

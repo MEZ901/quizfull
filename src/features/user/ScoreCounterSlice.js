@@ -14,10 +14,16 @@ export const ScoreCounterSlice = createSlice({
         },
         wrongAnswer: (state) => {
             state.value.wrongAnswer += 1;
-        }
+        },
+        resetCorrectAnswer: (state) => {
+            state.value.correctAnswer = 0;
+        },
+        resetWrongAnswer: (state) => {
+            state.value.wrongAnswer = 0;
+        },
     },
 });
 
-export const { correctAnswer, wrongAnswer } = ScoreCounterSlice.actions;
+export const { correctAnswer, wrongAnswer, resetCorrectAnswer, resetWrongAnswer } = ScoreCounterSlice.actions;
 
 export default ScoreCounterSlice.reducer;

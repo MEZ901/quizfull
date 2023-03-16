@@ -1,5 +1,5 @@
 {
-  "homepage": "http://MEZ901.github.io/quizfull",
+  "homepage": "https://MEZ901.github.io/quizfull",
   "name": "quizfull",
   "private": true,
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview",
     "watch-json-serve": "json-server -p 4000 -w ./src/data/react.json"
